@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.send('Rotta base')
 });
 
-app.use('/api/movies', routers)
+app.use('/movies', routers)
 
 app.listen(port, () => {
   console.log(`Server in ascolto sulla porta ${port}`)
