@@ -8,6 +8,4 @@ router.get('/', controller.index);
 
 router.get('/:id', controller.show);
 
-router.get('/:id/reviews', reviewsController.showReviews);
-
 module.exports = router;
