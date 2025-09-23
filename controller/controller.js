@@ -40,7 +40,24 @@ const show = (req, res) => {
   });
 }
 
+const store = (req, res) => {
+
+  const { title, director, genre, released_year } = req.body
+
+  const sql = 'INSERT INTO movies (title, director, genre, released_year) VALUES (?, ?, ?, ?)';
+
+  const data = [title, director, genre, released_year]
+
+  connection.query(sql, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: "Errore nella query: " + err });
+    }
+    res.status(201).json({ result: true, message: 'Film inserito' });
+  })
+};
+
 module.exports = {
   index,
   show,
+  store
 }
